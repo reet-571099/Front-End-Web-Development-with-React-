@@ -29,18 +29,19 @@ class DishDetail extends Component {
                     year: 'numeric',
                     month: 'short',
                     day:'2-digit'
-                    }).format(new Date(comment.date))}
+                    }).format(new Date(Date.parse(comment.date)))}
                    </p>
                 </li>
             );
         });
 
         return(
-
-            <div className="col-12 col-md-5 m-1">
+           
+            <div className="col-12 col-md-5 m-1 text-left">
             <h4> Comments</h4>
             <ul className="list-unstyled">{comm}</ul>
             </div>
+          
           );
     }
 
@@ -49,7 +50,7 @@ class DishDetail extends Component {
             if(dish!=null) {
                 return(
                     <div className="col-12 col-md-5 m-1">
-                        <Card>
+                        <Card className="text-left">
                         <CardImg width="100%" src={dish.image} alt={dish.name} />
                         <CardBody>
                             <CardTitle>{dish.name}</CardTitle>
