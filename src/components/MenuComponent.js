@@ -1,20 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Card,CardImg,CardImgOverlay,CardTitle} from 'reactstrap';
 
 
-class Menu extends Component {
-    constructor(props) {
-        super(props);
+
+    // constructor(props) {
+    //     super(props);
         
-        console.log("Menu Component constructor is invoked");
-    }
+    //    // console.log("Menu Component constructor is invoked");
+    // }
 
   
 
-    componentDidMount(){
-        console.log("Menu Component componentDidmount is invoked");
-    }
+    // componentDidMount(){
+    //     console.log("Menu Component componentDidmount is invoked");
+    // }
 
+    
     // renderDish(dish) {
     //     if (dish != null) {
     //         return(
@@ -34,17 +35,24 @@ class Menu extends Component {
     //     }
     // }
 
-    render() {
-        const menu = this.props.dishes.map((dish) => {
+    function RenderMenuItem({dish, onClick}) {
+        return(
+            <Card body
+            onClick={() => onClick(dish.id)}>
+            <CardImg width="100%" src={dish.image} alt={dish.name} />
+            <CardImgOverlay>
+                <CardTitle>{dish.name}</CardTitle>
+            </CardImgOverlay>
+          </Card>
+        );
+    }
+  
+    const Menu = (props) =>{
+
+        const menu = props.dishes.map((dish) => {
             return (
-              <div key={dish.id} className="col-12 col-md-5 m-1">
-                <Card body
-                  onClick={() => this.props.onClick(dish.id)}>
-                  <CardImg width="100%" src={dish.image} alt={dish.name} />
-                  <CardImgOverlay>
-                      <CardTitle>{dish.name}</CardTitle>
-                  </CardImgOverlay>
-                </Card>
+              <div key={dish.id} className="col-12 col-md-5 m-1 text-left">
+               <RenderMenuItem dish={dish} onClick={props.onClick}></RenderMenuItem>
               </div>
             );
         });
@@ -58,7 +66,9 @@ class Menu extends Component {
             </div>
         );
     }
-}
+        
+    
+
 
 
 export default Menu;
