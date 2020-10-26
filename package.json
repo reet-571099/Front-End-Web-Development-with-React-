@@ -2,7 +2,7 @@
   "name": "confusion",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://reet-571099.github.io/Front-End-Web-Development-with-React-",
+  "homepage" : "https://reactbyreet.netlify.app/",
   "dependencies": {
     "bootstrap": "^4.5.2",
     "bootstrap-social": "^5.1.1",
